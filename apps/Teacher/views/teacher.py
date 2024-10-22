@@ -22,7 +22,6 @@ def teacher_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def teacher_info(request):
@@ -34,7 +33,6 @@ def teacher_info(request):
         except Teacher.DoesNotExist:
             return Response({"error": "Teacher not found"}, status=status.HTTP_404_NOT_FOUND)
     return Response({'detail': 'Not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
-
 
 
 @api_view(["GET"])

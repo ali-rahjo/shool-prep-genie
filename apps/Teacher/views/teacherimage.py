@@ -5,8 +5,6 @@ from rest_framework import status
 from apps.Teacher.models.teacher import Teacher
 from apps.Teacher.serializer.teacherimage import TeacherImageSerializer
 
-
-
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
 def update_teacher_image(request):

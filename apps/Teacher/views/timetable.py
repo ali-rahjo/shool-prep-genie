@@ -36,12 +36,12 @@ def timetable_update(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == "GET":
-        # Serialize the timetable instance and return its data
+        
         serializer = TimeTableSerializer(timetable)
         return Response(serializer.data)
 
     elif request.method == "PUT":
-        # Deserialize the request data and update the existing timetable instance
+        
         serializer = TimeTableSerializer(timetable, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -49,6 +49,6 @@ def timetable_update(request, pk):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == "DELETE":
-        # Delete the timetable instance
+        
         timetable.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

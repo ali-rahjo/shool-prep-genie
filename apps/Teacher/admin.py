@@ -5,7 +5,6 @@ from apps.Teacher.models.timetable import TimeTable
 from apps.Teacher.models.attendance import Attendance
 from apps.Teacher.models.announcement import Announcement
 
-
 class ClassAdmin(admin.ModelAdmin):
     list_display = (
         "id",
@@ -15,7 +14,6 @@ class ClassAdmin(admin.ModelAdmin):
         "grade",
         "teacher_id",
     )
-
 
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ("id", "username", "first_name", "last_name", "gender")
@@ -34,21 +32,6 @@ class TeacherAdmin(admin.ModelAdmin):
     last_name.admin_order_field = "user__last_name"
 
 
-'''class AttendanceAdmin(admin.ModelAdmin):
-    list_display = ("id", "student", "teacher", "date", "is_present")
-
-    list_filter = ("date", "is_present", "teacher")
-    search_fields = (
-        "student__first_name",
-        "student__last_name",
-        "teacher__first_name",
-        "teacher__last_name",
-
-    )
-
-    def get_class_name(self, obj):
-        return obj.teacher
-'''
 class AttendanceAdmin(admin.ModelAdmin):
     list_display = ("id", "student", "teacher", "get_class_name", "date", "is_present")
     list_filter = ("date", "is_present", "teacher", "student")
@@ -69,7 +52,6 @@ class AttendanceAdmin(admin.ModelAdmin):
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ("id", "date", "announcement")
   
-# Register your models with the admin
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Class, ClassAdmin)
 admin.site.register(TimeTable)

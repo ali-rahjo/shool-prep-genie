@@ -23,20 +23,3 @@ urlpatterns = [
     path("announcement/create/", views.announcement_create, name="announcement-create"),
     path("students/", views.teacher_students_view, name='teacher-students'),
 ]
-
-
-"""
-app_name = "Teacher"
-urlpatterns = [
-    path("registration/", views.teacher_list, name="teacher-list"),
-    path("<int:pk>/", views.teacher_detail, name="teacher-detail"),
-    path("classes/<int:pk>/", views.class_detail, name="class-detail"),
-
-    # Timetable URLs
-    path("timetable/view/", timetable_view, name="timetable-detail"),
-    path("timetable/update/<int:pk>/", timetable_update, name="timetable-update"),
-
-    # Lunch Menu URLs
-    path("lunchmenu/view/", lunchmenu_list, name="lunchmenu-list"),
-    path("lunchmenu/update/<int:pk>/", lunchmenu_update, name="lunchmenu-detail"),
-]"""
